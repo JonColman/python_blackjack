@@ -26,8 +26,8 @@ def draw_card(hand_obj, output_text = None) -> bool:
         hand_obj[0][card] += 1
     hand_obj[1] += card
 
-    #Recalculate aces to equal 1, not 11, until <= 21 constraint is satisfied
-    while hand_obj[1] > 21 and hand_obj[0].get(11):
+    #Recalculate ace to equal 1, not 11, until <= 21 constraint is satisfied
+    if hand_obj[1] > 21 and hand_obj[0].get(11):
         hand_obj[1] -= 10   #Set ace value from 11 to 1
         if not hand_obj[0].get(1):
             hand_obj[0][1] = 1
